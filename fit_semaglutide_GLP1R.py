@@ -15,7 +15,7 @@ L1 = 0.015 # [nM] GLP1 (fasting)
 L2 = np.logspace(-3, 2, 500) # [nM] semaglutide or cavalitide
 
 # Load the data
-data = np.loadtxt("semaglutide_data.csv", delimiter=",", skiprows=1)
+data = np.loadtxt("cavalitide_data.csv", delimiter=",", skiprows=1)
 L2_loaded, Fact_loaded = data[:, 0], data[:, 1]
 
 # Approach 1: Brute force optimization of Kd2: try many candidate values in a for loop
@@ -48,8 +48,8 @@ plt.semilogx(L2, Fact(L1, L2, Kd1, Kd2_fit), "--", lw=2,
              label=f"curvefit (Kd2 = {Kd2_fit:.3f} nM)")
 
 plt.ylim(-0.1, 1.1)
-plt.xlabel("[semaglutide] (nM)")
+plt.xlabel("[cavalitide] (nM)")
 plt.ylabel("Fraction active (Fact)")
-plt.title("GLP1R activation by semaglutide with GLP1 present")
+plt.title("GLP1R activation by cavalitide with GLP1 present")
 plt.legend(loc="upper left")
 plt.show()
